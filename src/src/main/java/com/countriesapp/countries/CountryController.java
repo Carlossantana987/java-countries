@@ -12,9 +12,17 @@ public class CountryController
 {
 
     // localhost:8080/data/allCountries
-    @GetMapping(value = "/allCountries")
+    @GetMapping(value = "/names/allCountries")
     public ResponseEntity<?> getAllCountries()
     {
+        CountriesApplication.ourCountryList.countryList.sort((c1, c2) -> c1.getCname().compareToIgnoreCase(c2.getCname()));
+        return new ResponseEntity<>(CountriesApplication.ourCountryList.countryList, HttpStatus.OK);
+    }
+
+    @GetMapping(value = "/names/start/{letter}")
+    public ResponseEntity<?> getStartCountries()
+    {
+        CountriesApplication.ourCountryList.countryList
         return new ResponseEntity<>(CountriesApplication.ourCountryList.countryList, HttpStatus.OK);
     }
 
