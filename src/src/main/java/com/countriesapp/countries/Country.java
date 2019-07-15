@@ -13,6 +13,8 @@ public class Country
     private double landMassSize;
     private double medianAge;
 
+
+    //constructor
     public Country(String cname, int population, double landMassSize, double medianAge)
     {
         this.id = counter.incrementAndGet();
@@ -22,6 +24,7 @@ public class Country
         this.medianAge = medianAge;
     }
 
+    // GETTERS && SETTERS
     public long getId()
     {
         return id;
@@ -65,5 +68,12 @@ public class Country
     public void setMedianAge(double medianAge)
     {
         this.medianAge = medianAge;
+    }
+
+    @Override
+    public String toString()
+    {
+        return "Country{" + "id=" + id + ", cname='" + cname + '\'' + ", population=" + population + ", landMassSize" +
+                "=" + landMassSize + ", medianAge=" + medianAge + '}';
     }
 }
